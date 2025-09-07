@@ -7,10 +7,10 @@ mat = [
 
 
 cols=len(mat[0])
-raws=len(mat)
+rows=len(mat)
 pivot_col=0
 
-for r in range(raws):
+for r in range(rows):
     if pivot_col >= cols:
         break
 
@@ -18,7 +18,7 @@ for r in range(raws):
         factor = mat[r][pivot_col]
         mat[r] = [x/factor for x in mat[r]]
     elif mat[r][pivot_col] ==0:
-        for i in range(r+1, raws):
+        for i in range(r+1, rows):
             if mat[i][pivot_col] != 0 and mat[i][pivot_col] ==1:
                 mat[r], mat[i] = mat[i], mat[r]
                 break
@@ -28,7 +28,7 @@ for r in range(raws):
                 mat[r]=[x/factor for x in mat[r]]
                 break
 
-    for i in range(raws):
+    for i in range(rows):
         if i != r:
             factor = mat[i][pivot_col]
             mat[i]=[a-factor*b for a, b in zip(mat[i], mat[r])]
